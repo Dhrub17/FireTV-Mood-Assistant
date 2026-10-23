@@ -1,0 +1,25 @@
+{
+  "name": "fire-tv-mood-assistant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "EXPO_TV=1 expo prebuild --clean",
+    "android": "EXPO_TV=1 expo run:android",
+    "start": "EXPO_TV=1 expo start --dev-client",
+    "typecheck": "tsc --noEmit",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "@react-native-tvos/config-tv": "^0.1.7",
+    "expo": "~53.0.0",
+    "expo-build-properties": "~0.14.8",
+    "expo-speech-recognition": "^2.1.5",
+    "expo-video": "~2.2.0",
+    "react": "19.0.0",
+    "react-native": "npm:react-native-tvos@~0.79.7-0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
+  }
+}

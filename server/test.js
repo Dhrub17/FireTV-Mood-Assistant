@@ -1,0 +1,13 @@
+import { spawn } from 'node:child_process';
+const s = spawn('node', ['index.js'], { env: { ...process.env, PORT: 8799 } });
+await new Promise((r) => setTimeout(r, 800));
+const post = (b) => fetch('http://localhost:8799/assist', { method: 'POST', body: JSON.stringify(b) }).then((r) => r.json());
+let r = await post({ text: "I'm exhausted, movie night with my kids, under 20 minutes" });
+console.log('1', JSON.stringify(r.intent), r.picks.map((p) => p.id));
+r = await post({ text: 'too slow, nothing scary', intent: r.intent, rejected: r.rejected, shown: r.picks.map((p) => p.id) });
+console.log('2', JSON.stringify(r.intent), r.picks.map((p) => p.id), 'rejected:', r.rejected);
+r = await post({ text: 'that one where a robot fights in Amsterdam' });
+console.log('3', r.picks.map((p) => p.id));
+r = await post({ text: 'surprise me with something funny' });
+console.log('4', JSON.stringify(r.actions));
+s.kill();

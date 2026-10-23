@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Mood Assistant",
+    "slug": "fire-tv-mood-assistant",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "android": { "package": "com.example.moodassistant" },
+    "plugins": [
+      "@react-native-tvos/config-tv",
+      ["expo-build-properties", { "android": { "usesCleartextTraffic": true } }],
+      ["expo-speech-recognition", { "microphonePermission": "Used to hear what you want to watch.", "speechRecognitionPermission": "Used to understand what you want to watch." }]
+    ]
+  }
+}
